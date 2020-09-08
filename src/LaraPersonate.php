@@ -57,7 +57,7 @@ class LaraPersonate
      */
     public function modifyResponse(Response $response) : Response
     {
-        if (! $this->auth->check()) {
+        if (! $this->auth->check() || ! config('impersonate.enabled', false)) {
             return $response;
         }
 
